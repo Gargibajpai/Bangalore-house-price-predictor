@@ -1,0 +1,170 @@
+/* app.css */
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap");
+
+:root{
+  --accent: #a5dc86;
+  --accent-dark: #88c36f;
+  --muted: #f2f2f2;
+  --result-bg: #dcd686;
+  --max-width: 360px;
+}
+
+/* Background image layer */
+.img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/static/banglore_pic.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+
+/* Page */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+}
+
+/* Form container */
+.container {
+  min-height: 100%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 24px; 
+  box-sizing: border-box;
+}
+
+/* Actual form box (keeps content readable above blurred bg) */
+body {
+  background-image: url("/static/banglore_pic.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Headings */
+.form h2 {
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #ffffff;              /* white text */
+  font-weight: bold;           /* make it bold */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8); /* glow for readability */
+}
+
+
+/* Input styles */
+.area,
+.location,
+.submit,
+.result {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+/* Text inputs & selects */
+.area,
+.location {
+  background: var(--muted);
+  height: 38px;
+}
+
+/* Buttons */
+.submit {
+  background: var(--accent);
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+  height: 40px;
+  transition: background 0.15s ease;
+  text-align: center;
+}
+
+.submit:hover,
+.submit:focus {
+  background: var(--accent-dark);
+}
+
+/* Result box */
+.result {
+  margin-top: 15px;
+  padding: 10px;
+  background: khaki;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+/* Radio switch-field (BHK / Bath) */
+.switch-field {
+  display: flex;
+  gap: 0;
+  margin: 10px 0 18px 0;
+  overflow: hidden;
+}
+
+.switch-field input {
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+
+.switch-field label {
+  background-color: #e4e4e4;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 8px 14px;
+  margin-right: -1px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.12s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.switch-field input:checked + label {
+  background-color: var(--accent);
+  box-shadow: none;
+  color: #111;
+}
+
+.switch-field label:first-of-type {
+  border-radius: 6px 0 0 6px;
+}
+
+.switch-field label:last-of-type {
+  border-radius: 0 6px 6px 0;
+}
+
+/* small screens adjustments */
+@media (max-width: 420px) {
+  :root { --max-width: 320px; }
+  .form { padding: 16px; }
+  .area, .location { width: 100%; }
+}
